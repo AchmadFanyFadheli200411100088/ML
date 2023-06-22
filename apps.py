@@ -277,7 +277,7 @@ with Implementasi:
         # st.write(clf.final_result)
 
 y_pred2 = model.predict(inputs)
-
+st.write(f"Berdasarkan data yang di masukkan, maka anda prediksi : {le.inverse_transform(y_pred2)[0]}")
 all = st.button("Submit")
 if all :
     st.balloons()
