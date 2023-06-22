@@ -219,6 +219,7 @@ with Implementasi:
     Dry_Cough = st.number_input('Masukkan Dry Cough (Dry Cough) : ')
     Snoring = st.number_input('Masukkan Snoring (Snoring) : ')
 
+    def submit():
     inputan = np.array([[
         Age,
         Gender,
@@ -243,7 +244,7 @@ with Implementasi:
         Dry_Cough,
         Snoring,
         ]])
-
+    le = joblib.load("le.save")
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=5)
     clf = adaboost()
     clf.fit(X_train, y_train)
@@ -274,9 +275,8 @@ clf.fit(X_train, y_train)
 clf.predict(inputan, y_test)
 # st.write(clf.final_result)
 
-le = joblib.load("le.save")
 
-def submit():
+
     all = st.button("Submit")
     if all :
         st.balloons()
