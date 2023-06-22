@@ -273,7 +273,7 @@ with Implementasi:
         clf = adaboost()
         clf.fit(X_train, y_train)
 
-        clf.predict(inputan, y_test)
+        clf.predict(inputs, y_test)
         # st.write(clf.final_result)
 
 y_pred2 = model.predict(inputs)
