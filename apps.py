@@ -243,19 +243,12 @@ with Implementasi:
         Dry_Cough,
         Snoring,
         ]])
-    le = joblib.load("le.save")
+    
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=5)
     clf = adaboost()
     clf.fit(X_train, y_train)
-
-    def submit():
-    all = st.button("Submit")
-    if all :
-        st.balloons()
-        submit()
-
-        clf.predict(inputan, y_test)
-        st.write("ini hasilnya",clf.final_result[0])
+    clf.predict(inputan, y_test)
+    st.write("ini hasilnya",clf.final_result[0])
 
 def accuracy(y_true, y_pred):
     accuracy = np.sum(y_true == y_pred) / len(y_true)
@@ -279,3 +272,9 @@ clf.fit(X_train, y_train)
 
 clf.predict(inputan, y_test)
 # st.write(clf.final_result)
+
+def submit():
+    all = st.button("Submit")
+    if all :
+        st.balloons()
+        submit()
