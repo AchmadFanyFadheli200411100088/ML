@@ -248,8 +248,14 @@ with Implementasi:
     clf = adaboost()
     clf.fit(X_train, y_train)
 
-    clf.predict(inputan, y_test)
-    st.write("ini hasilnya",clf.final_result[0])
+    def submit():
+    all = st.button("Submit")
+    if all :
+        st.balloons()
+        submit()
+
+        clf.predict(inputan, y_test)
+        st.write("ini hasilnya",clf.final_result[0])
 
 def accuracy(y_true, y_pred):
     accuracy = np.sum(y_true == y_pred) / len(y_true)
@@ -273,14 +279,3 @@ clf.fit(X_train, y_train)
 
 clf.predict(inputan, y_test)
 # st.write(clf.final_result)
-
-y_pred2 = model.predict(inputs)    
-st.write(f"Berdasarkan data yang di masukkan, maka anda prediksi migrain : {le.inverse_transform(y_pred2)[0]}")
-st.write("0 = Tidak menderita penyakit migrain")
-st.write("1 = menderita penyakit migrain")
-
-def submit():
-    all = st.button("Submit")
-    if all :
-        st.balloons()
-        submit()
