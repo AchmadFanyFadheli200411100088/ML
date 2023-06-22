@@ -10,8 +10,6 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from math import e
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder
-from sklearn.utils.validation import joblib
 
 description, Dataset, Preprocessing, Implementasi = st.tabs(["Description", "Dataset", "Preprocessing", "implementasi"])
 
@@ -219,66 +217,57 @@ with Implementasi:
     Dry_Cough = st.number_input('Masukkan Dry Cough (Dry Cough) : ')
     Snoring = st.number_input('Masukkan Snoring (Snoring) : ')
 
-    def submit():
-        inputs = np.array([[
-            Age,
-            Gender,
-            Air_Pollution,
-            Alcohol_Use,
-            Dust_Allergy,
-            OccuPational_Hazards,
-            Genetic_Risk,
-            chronic_Lung_Disease,
-            Balanced_Diet,
-            Obesity,Smoking,
-            Passive_Smoker,
-            Chest_Pain,
-            Coughing_of_Blood,
-            Fatigue,
-            Weight_Loss,
-            Shortness_of_Breath,
-            Wheezing,
-            Swallowing_Difficulty,
-            Clubbing_of_Finger_Nails,
-            Frequent_Cold,
-            Dry_Cough,
-            Snoring,
-            ]])
+    inputs = np.array([[
+        Age,
+        Gender,
+        Air_Pollution,
+        Alcohol_Use,
+        Dust_Allergy,
+        OccuPational_Hazards,
+        Genetic_Risk,
+        chronic_Lung_Disease,
+        Balanced_Diet,
+        Obesity,Smoking,
+        Passive_Smoker,
+        Chest_Pain,
+        Coughing_of_Blood,
+        Fatigue,
+        Weight_Loss,
+        Shortness_of_Breath,
+        Wheezing,
+        Swallowing_Difficulty,
+        Clubbing_of_Finger_Nails,
+        Frequent_Cold,
+        Dry_Cough,
+        Snoring,
+        ]])
         
-        le = joblib.load("le.save")
     
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=5)
-        clf = adaboost()
-        clf.fit(X_train, y_train)
-        clf.predict(inputan, y_test)
-        st.write("ini hasilnya",clf.final_result[0])
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=5)
+    clf = adaboost()
+    clf.fit(X_train, y_train)
+    clf.predict(inputan, y_test)
+    st.write("ini hasilnya",clf.final_result[0])
 
-        def accuracy(y_true, y_pred):
-            accuracy = np.sum(y_true == y_pred) / len(y_true)
-            return accuracy
-        X_train, X_test, y_train, y_test = train_test_split(
-            X, y, test_size=0.2, random_state=5)
-        clf = adaboost()
-        clf.fit(X_train, y_train)
+    def accuracy(y_true, y_pred):
+        accuracy = np.sum(y_true == y_pred) / len(y_true)
+        return accuracy
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=5)
+    clf = adaboost()
+    clf.fit(X_train, y_train)
 
-        clf.predict(X_test,y_test)
-        # clf.final_result
+    clf.predict(X_test,y_test)
+    # clf.final_result
 
 
-        def accuracy(y_true, y_pred):
-            accuracy = np.sum(y_true == y_pred) / len(y_true)
-            return accuracy
-        X_train, X_test, y_train, y_test = train_test_split(
-            X, y, test_size=0.2, random_state=5)
-        clf = adaboost()
-        clf.fit(X_train, y_train)
+    def accuracy(y_true, y_pred):
+        accuracy = np.sum(y_true == y_pred) / len(y_true)
+        return accuracy
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=5)
+    clf = adaboost()
+    clf.fit(X_train, y_train)
 
-        clf.predict(inputs, y_test)
-        # st.write(clf.final_result)
-
-y_pred2 = model.predict(inputs)
-st.write(f"Berdasarkan data yang di masukkan, maka anda prediksi : {le.inverse_transform(y_pred2)[0]}")
-all = st.button("Submit")
-if all :
-    st.balloons()
-    submit()
+    clf.predict(inputs, y_test)
+    # st.write(clf.final_result)
