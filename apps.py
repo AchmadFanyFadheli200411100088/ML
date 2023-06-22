@@ -219,7 +219,6 @@ with Implementasi:
     Dry_Cough = st.number_input('Masukkan Dry Cough (Dry Cough) : ')
     Snoring = st.number_input('Masukkan Snoring (Snoring) : ')
 
-    def submit():
     inputan = np.array([[
         Age,
         Gender,
@@ -276,7 +275,7 @@ clf.predict(inputan, y_test)
 # st.write(clf.final_result)
 
 
-
+def submit():
     all = st.button("Submit")
     if all :
         st.balloons()
