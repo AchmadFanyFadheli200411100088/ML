@@ -11,7 +11,7 @@ from sklearn.model_selection import train_test_split
 from math import e
 import pandas as pd
 
-description, Dataset, Preprocessing, Implementasi = st.tabs(["Description", "Dataset", "Preprocessing", "implementasi"])
+description, Dataset, Preprocessing, modeling, Implementasi = st.tabs(["Description", "Dataset", "Preprocessing", "modeling, "implementasi"])
 
 with description:
     st.write("""# Data Set Description """)
@@ -71,6 +71,27 @@ with Preprocessing:
     # Menampilkan y di Streamlit
     st.write("Variabel y:")
     st.write(y)
+
+with modeling:
+    st.write("""# Modeling""")
+
+    def main():
+    st.title(" KNN Model Terbaik")
+    
+    # Menampilkan daftar pilihan jumlah tetangga terdekat
+    k_values = [1, 3, 5, 7, 9]
+    k = st.selectbox("Pilih jumlah tetangga terdekat (K)", k_values)
+    
+    # Melatih dan menguji model KNN
+    accuracy = train_knn(k)
+    
+    # Menampilkan akurasi model
+    st.write("Akurasi model KNN terbaik:", accuracy)
+
+if _name_ == "_main_":
+    main()
+
+    
 
 
 with Implementasi:
