@@ -1,4 +1,4 @@
-import streamlit as st
+4import streamlit as st
 from sklearn import datasets
 from sklearn import preprocessing
 from sklearn.ensemble import AdaBoostClassifier
@@ -11,7 +11,7 @@ from sklearn.model_selection import train_test_split
 from math import e
 import pandas as pd
 
-description, Dataset, Preprocessing, modeling, Implementasi = st.tabs(["Description", "Dataset", "Preprocessing", "modeling, "implementasi"])
+description, Dataset, Preprocessing, modeling, Implementasi = st.tabs(["Description", "Dataset", "Preprocessing", "modeling", "implementasi"])
 
 with description:
     st.write("""# Data Set Description """)
