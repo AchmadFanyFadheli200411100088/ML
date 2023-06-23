@@ -1,4 +1,4 @@
-4import streamlit as st
+import streamlit as st
 from sklearn import datasets
 from sklearn import preprocessing
 from sklearn.ensemble import AdaBoostClassifier
