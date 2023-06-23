@@ -76,20 +76,17 @@ with modeling:
     st.write("""# Modeling""")
 
     def main():
-    st.title(" KNN Model Terbaik")
     
-    # Menampilkan daftar pilihan jumlah tetangga terdekat
-    k_values = [1, 3, 5, 7, 9]
-    k = st.selectbox("Pilih jumlah tetangga terdekat (K)", k_values)
     
-    # Melatih dan menguji model KNN
-    accuracy = train_knn(k)
+        k_values = [1, 3, 5, 7, 9]
+        k = st.selectbox("Pilih jumlah tetangga terdekat (K)", k_values)
     
-    # Menampilkan akurasi model
-    st.write("Akurasi model KNN terbaik:", accuracy)
+        accuracy = train_knn(k)
+    
+        st.write("Akurasi model KNN terbaik:", accuracy)
 
-if _name_ == "_main_":
-    main()
+        if _name_ == "_main_":
+            main()
 
     
 
